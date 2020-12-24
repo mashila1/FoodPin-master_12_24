@@ -8,9 +8,12 @@
 
 import UIKit
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    var searchController: UISearchController!
 
     var restaurants: [Restaurant] = []
+    var searchResults: [Restaurant] = []
     
     
     // MARK: - Table view lifecycle
@@ -18,12 +21,28 @@ class RestaurantTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+         // Search controller
+        searchController = UISearchController(searchResultsController: nil)
+        //searchController.searchResultsUpdater = self
+        //not change the color of the search contents
+        searchController.obscuresBackgroundDuringPresentation = false
+
+        //self.navigationItem.searchController = searchController
+        tableView.tableHeaderView = searchController.searchBar
+        
         loadRestaurants()
         if restaurants.isEmpty {
             Restaurant.generateData(sourceArray: &restaurants)
         }
 
         navigationController?.navigationBar.prefersLargeTitles = true
+        //destinationController.restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
+
+        searchController.searchResultsUpdater = self
+
+        searchController.obscuresBackgroundDuringPresentation = false
         
     }
 
@@ -36,7 +55,12 @@ class RestaurantTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurants.count
+        
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return restaurants.count
+        }
     }
 
     
@@ -44,12 +68,13 @@ class RestaurantTableViewController: UITableViewController {
         
         let cellIdentifier = "datacell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        let restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
 
         // Configure the cell...
-        cell.nameLabel.text = restaurants[indexPath.row].name //optioinal chaining
-        cell.locationLabel.text = restaurants[indexPath.row].location
-        cell.typeLabel.text = restaurants[indexPath.row].type
-        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        cell.nameLabel.text = restaurant.name //optioinal chaining
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
+        cell.thumbnailImageView.image = UIImage(named: restaurant.image)
         
         if restaurants[indexPath.row].isVisited {
         cell.accessoryType = .checkmark
@@ -61,6 +86,13 @@ class RestaurantTableViewController: UITableViewController {
         
          
         return cell
+    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
     }
     
 
@@ -184,6 +216,8 @@ class RestaurantTableViewController: UITableViewController {
     return swipeConfiguration
     }
     
+   
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -239,6 +273,28 @@ class RestaurantTableViewController: UITableViewController {
             }
         }
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Search bar for core data version
+    
+    func filterContent(for searchText: String) {
+        
+        searchResults = restaurants.filter({ (restaurant) -> Bool in
+            let name = restaurant.name
+            let isMatch = name.localizedCaseInsensitiveContains(searchText)
+            
+            return isMatch
+        })
+        
+    }
+
+        
     
     
 
