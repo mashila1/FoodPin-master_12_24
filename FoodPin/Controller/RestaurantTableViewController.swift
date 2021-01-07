@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Firebase
+
 class RestaurantTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var searchController: UISearchController!
@@ -219,6 +221,17 @@ class RestaurantTableViewController: UITableViewController, UISearchResultsUpdat
    
     
     // MARK: - Navigation
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                dismiss(animated: true, completion: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "showRestaurantDetail" {

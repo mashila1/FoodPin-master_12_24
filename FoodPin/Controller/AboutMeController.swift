@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import Firebase
 
 class AboutMeController: UITableViewController {
     
@@ -37,6 +38,17 @@ class AboutMeController: UITableViewController {
         }
         
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                dismiss(animated: true, completion: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
 
  
