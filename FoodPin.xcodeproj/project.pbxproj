@@ -38,7 +38,9 @@
 		4EE8176F2541277C008B828E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EE8176D2541277C008B828E /* LaunchScreen.storyboard */; };
 		4EE817772541293D008B828E /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE817762541293D008B828E /* RestaurantTableViewController.swift */; };
 		4EE8177925413599008B828E /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8177825413599008B828E /* RestaurantTableViewCell.swift */; };
-		4EFD672725A6995300D33257 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD672625A6995300D33257 /* GoogleService-Info.plist */; };
+		4EF16EFD25A826740057F5C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EF16EFC25A826740057F5C7 /* GoogleService-Info.plist */; };
+		4EF16EFF25A8275F0057F5C7 /* WheelImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF16EFE25A8275F0057F5C7 /* WheelImageView.swift */; };
+		4EF16F0125A827AA0057F5C7 /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF16F0025A827AA0057F5C7 /* WheelViewController.swift */; };
 		4EFD672925A6A1A000D33257 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFD672825A6A1A000D33257 /* FirstPageViewController.swift */; };
 		8E129162F70A84AAF06B1FF6 /* Pods_FoodPin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4867507B94AC2CBCA9C2ABF5 /* Pods_FoodPin.framework */; };
 /* End PBXBuildFile section */
@@ -79,7 +81,9 @@
 		4EE817702541277C008B828E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EE817762541293D008B828E /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		4EE8177825413599008B828E /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
-		4EFD672625A6995300D33257 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EF16EFC25A826740057F5C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EF16EFE25A8275F0057F5C7 /* WheelImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelImageView.swift; sourceTree = "<group>"; };
+		4EF16F0025A827AA0057F5C7 /* WheelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
 		4EFD672825A6A1A000D33257 /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstPageViewController.swift; path = FoodPin/Controller/FirstPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		B4186E3F930F1D5F1AC90736 /* Pods-FoodPin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPin.release.xcconfig"; path = "Target Support Files/Pods-FoodPin/Pods-FoodPin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,8 +166,8 @@
 				4EE817682541277C008B828E /* Main.storyboard */,
 				4EE8176B2541277C008B828E /* Assets.xcassets */,
 				4EE8176D2541277C008B828E /* LaunchScreen.storyboard */,
+				4EF16EFC25A826740057F5C7 /* GoogleService-Info.plist */,
 				4EE817702541277C008B828E /* Info.plist */,
-				4EFD672625A6995300D33257 /* GoogleService-Info.plist */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -186,6 +190,7 @@
 				4E2BA74D2581C29F0025546B /* ReviewViewController.swift */,
 				4E85D7E2258AF12700B4DDA8 /* NewRestaurantController.swift */,
 				4EDF38C1259440FA0011C85C /* AboutMeController.swift */,
+				4EF16F0025A827AA0057F5C7 /* WheelViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				4E6C84F5257878D900896E88 /* RestaurantDetailMapCell.swift */,
 				4E85D7E0258AEFEE00B4DDA8 /* RoundedTextField.swift */,
 				4EFD672825A6A1A000D33257 /* FirstPageViewController.swift */,
+				4EF16EFE25A8275F0057F5C7 /* WheelImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,7 +281,7 @@
 			files = (
 				4E0D3DF9256F3E9D00E04A0E /* Rubik-BlackItalic.ttf in Resources */,
 				4E0D3E02256F3E9D00E04A0E /* Rubik-Regular.ttf in Resources */,
-				4EFD672725A6995300D33257 /* GoogleService-Info.plist in Resources */,
+				4EF16EFD25A826740057F5C7 /* GoogleService-Info.plist in Resources */,
 				4E0D3DFE256F3E9D00E04A0E /* Rubik-LightItalic.ttf in Resources */,
 				4E0D3DFD256F3E9D00E04A0E /* Rubik-Bold.ttf in Resources */,
 				4E0D3DFA256F3E9D00E04A0E /* Rubik-Light.ttf in Resources */,
@@ -344,11 +350,13 @@
 				4EE8177925413599008B828E /* RestaurantTableViewCell.swift in Sources */,
 				4E2BA74E2581C29F0025546B /* ReviewViewController.swift in Sources */,
 				4EDF38C2259440FA0011C85C /* AboutMeController.swift in Sources */,
+				4EF16EFF25A8275F0057F5C7 /* WheelImageView.swift in Sources */,
 				4E0D3E08256F527F00E04A0E /* RestaurantDetailTextCell.swift in Sources */,
 				4EE817632541277C008B828E /* AppDelegate.swift in Sources */,
 				4E5419B42566047000AE2EB4 /* Restaurant.swift in Sources */,
 				4E0D3E06256F518100E04A0E /* RestaurantDetailIconTextCell.swift in Sources */,
 				4E0D3E04256F441700E04A0E /* RestaurantDetailHeaderView.swift in Sources */,
+				4EF16F0125A827AA0057F5C7 /* WheelViewController.swift in Sources */,
 				4E6C84F8257882E600896E88 /* MapViewController.swift in Sources */,
 				4E3CBE0025539CB1002913BA /* RestaurantDetailViewController.swift in Sources */,
 				4E85D7E3258AF12700B4DDA8 /* NewRestaurantController.swift in Sources */,
